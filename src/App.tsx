@@ -1,21 +1,18 @@
 import './App.css';
-import { useEffect } from 'react';
-import { getCountriesData, getGivenCountryData } from './api/countries';
+import store from './app/store';
+import { Provider } from 'react-redux';
+import AllCountries from './components/AllCountries/AllCountries';
+import Country from './components/Country/country';
 
 function App() {
-    useEffect(() => {
-        async function fetchCountries() {
-            const response = await getCountriesData();
-            console.log(response);
-
-            const response2 = await getGivenCountryData('de');
-            console.log(response2);
-        }
-
-        fetchCountries();
-    });
-
-    return <div className="App">App</div>;
+    return (
+        <Provider store={store}>
+            <div className="App">
+                <AllCountries />
+                <Country />
+            </div>
+        </Provider>
+    );
 }
 
 export default App;
