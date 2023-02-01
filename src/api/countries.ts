@@ -1,7 +1,7 @@
 import axios from 'axios';
 // '@ts-ignore' are hear cuz we do not know what we get from api. Given API does not have interface or strict type
 
-interface getCountries {
+export interface getCountries {
     name: string;
     population: number;
     region: string;
@@ -10,7 +10,7 @@ interface getCountries {
     cca2: string;
 }
 
-interface getGivenCountry {
+export interface getGivenCountry {
     nativeName: string;
     population: number;
     region: string;
