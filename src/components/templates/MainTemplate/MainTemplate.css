@@ -1,0 +1,20 @@
+.mainTemplate {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    height: 100%;
+    gap: 20px;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.fullSize {
+    width: 100%;
+    height: 100%;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
