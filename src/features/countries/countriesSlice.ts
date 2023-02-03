@@ -52,11 +52,13 @@ export const countriesSlice = createSlice({
             state.region = action.payload.region;
         },
         searchCountry(state, action: PayloadAction<{ searchTerm: string }>) {
-            state.filteredData = state.data.filter((country) => country.region === state.region);
+            filterRegion({ region: state.region });
             if (action.payload.searchTerm !== '') {
-                state.filteredData = state.filteredData.filter((country) =>
-                    country.name.toLowerCase().includes(action.payload.searchTerm.toLowerCase())
-                );
+                console.log(action.payload.searchTerm);
+                state.filteredData = state.filteredData.filter((country) => {
+                    console.log(country.name.toLowerCase().includes(action.payload.searchTerm.toLowerCase()));
+                    return country.name.toLowerCase().includes(action.payload.searchTerm.toLowerCase());
+                });
             } else {
                 state.filteredData = state.filteredData;
             }

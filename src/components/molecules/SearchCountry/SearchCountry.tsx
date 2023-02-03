@@ -11,6 +11,7 @@ const SearchCountry = () => {
     const handleSearchTerm = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             dispatch(searchCountry({ searchTerm: searchValue }));
+            setSearchValue('');
         }
     };
 
