@@ -17,7 +17,7 @@ const AllCountries = () => {
                 ) : data ? (
                     <>
                         {data.map((country) => (
-                            <CountryPreview country={country} key={country.cca2} />
+                            <CountryPreview country={country} key={country.ccA2} />
                         ))}
                     </>
                 ) : null}

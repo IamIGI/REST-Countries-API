@@ -1,14 +1,23 @@
 import React from 'react';
 import { getCountries } from '../../../api/countries';
 import './CountryPreview.css';
+import { NavLink } from 'react-router-dom';
+import { useAppDispatch } from '../../../app/store';
+import { refreshStatus } from '../../../features/countries/countriesSlice';
 
 interface CountryPreviewProps {
     country: getCountries;
 }
 
 const CountryPreview = ({ country }: CountryPreviewProps) => {
+    const dispatch = useAppDispatch();
+
     return (
-        <div className="countryPreview">
+        <NavLink
+            to={`/country/${country.ccA2}`}
+            onClick={() => dispatch(refreshStatus())}
+            className="countryPreview pointer"
+        >
             <div className="image">
                 <img src={country.flag} alt={country.name} />
             </div>
@@ -26,7 +35,7 @@ const CountryPreview = ({ country }: CountryPreviewProps) => {
                     </li>
                 </ul>
             </div>
-        </div>
+        </NavLink>
     );
 };
 

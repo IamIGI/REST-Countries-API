@@ -2,11 +2,14 @@ import React from 'react';
 import './Navbar.css';
 import { BsMoonFill } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { refreshStatus } from '../../../features/countries/countriesSlice';
 
 const Navbar = () => {
+    const dispatch = useDispatch();
     return (
         <div className="navBar">
-            <NavLink to="/" className="navBar__title pointer">
+            <NavLink to="/" onClick={() => dispatch(refreshStatus())} className="navBar__title pointer">
                 <h1>Where is the world?</h1>
             </NavLink>
 
