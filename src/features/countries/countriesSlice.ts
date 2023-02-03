@@ -54,10 +54,9 @@ export const countriesSlice = createSlice({
         searchCountry(state, action: PayloadAction<{ searchTerm: string }>) {
             filterRegion({ region: state.region });
             if (action.payload.searchTerm !== '') {
-                state.filteredData = state.filteredData.filter((country) => {
-                    console.log(country.name.toLowerCase().includes(action.payload.searchTerm.toLowerCase()));
-                    return country.name.toLowerCase().includes(action.payload.searchTerm.toLowerCase());
-                });
+                state.filteredData = state.filteredData.filter((country) =>
+                    country.name.toLowerCase().includes(action.payload.searchTerm.toLowerCase())
+                );
             } else {
                 state.filteredData = state.filteredData;
             }
