@@ -7,7 +7,7 @@ export interface getCountries {
     region: string;
     capital: string[] | undefined;
     flag: string;
-    cca2: string;
+    ccA2: string;
 }
 
 export interface getGivenCountry {

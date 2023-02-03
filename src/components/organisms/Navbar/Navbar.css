@@ -14,7 +14,7 @@
     text-decoration: none;
     border-bottom: 1px solid transparent;
     padding: 5px 10px;
-    border-radius: 10px;
+    border-radius: var(--default-border-radius);
     transition: border-color 0.2s ease;
 }
 
@@ -37,9 +37,9 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    padding: 0px 5px;
+    padding: 10px 5px;
     line-height: 10px;
-    border-radius: 10px;
+    border-radius: var(--default-border-radius);
     font-size: 16px;
     font-weight: 600;
     transition: border-color 0.2s ease;

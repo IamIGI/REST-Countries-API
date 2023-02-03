@@ -8,7 +8,7 @@ import {
     fetchCountryById,
     selectCountries,
     selectCountryById,
-} from './countries';
+} from './countriesSlice';
 
 export function useGetCountries() {
     const dispatch = useAppDispatch();

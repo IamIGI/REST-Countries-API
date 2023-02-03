@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-import countriesReducer from '../features/countries/countries';
+import countriesReducer from '../features/countries/countriesSlice';
 
 const store = configureStore({
     reducer: {

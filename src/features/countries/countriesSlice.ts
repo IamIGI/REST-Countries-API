@@ -5,18 +5,22 @@ import { RootState } from '../../app/store';
 
 interface CountriesInitialState {
     data: getCountries[];
+    filteredData: getCountries[];
     status: 'idle' | 'pending' | 'fulfilled' | 'rejected';
     error: undefined | string;
     refresh: boolean;
     countryById: getGivenCountry | {};
+    region: string;
 }
 
 const initialState: CountriesInitialState = {
     data: [],
+    filteredData: [],
     status: 'idle',
     error: undefined,
     refresh: false,
     countryById: {},
+    region: 'all',
 };
 
 export const fetchCountries = createAsyncThunk('countries/get', async (): Promise<getCountries[]> => {
@@ -29,6 +33,7 @@ export const fetchCountryById = createAsyncThunk(
     'countries/get/id',
     async (id: string): Promise<getGivenCountry | {}> => {
         const response = await getGivenCountryData(id);
+
         if (!response) return {};
         return response;
     }
@@ -37,7 +42,29 @@ export const fetchCountryById = createAsyncThunk(
 export const countriesSlice = createSlice({
     name: 'countries',
     initialState,
-    reducers: {},
+    reducers: {
+        filterRegion(state, action: PayloadAction<{ region: string }>) {
+            if (action.payload.region === 'all') {
+                state.filteredData = state.data;
+            } else {
+                state.filteredData = state.data.filter((country) => country.region === action.payload.region);
+            }
+            state.region = action.payload.region;
+        },
+        searchCountry(state, action: PayloadAction<{ searchTerm: string }>) {
+            state.filteredData = state.data.filter((country) => country.region === state.region);
+            if (action.payload.searchTerm !== '') {
+                state.filteredData = state.filteredData.filter((country) =>
+                    country.name.toLowerCase().includes(action.payload.searchTerm.toLowerCase())
+                );
+            } else {
+                state.filteredData = state.filteredData;
+            }
+        },
+        refreshStatus(state) {
+            state.status = 'idle';
+        },
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchCountries.pending, (state) => {
             state.status = 'pending';
@@ -45,6 +72,7 @@ export const countriesSlice = createSlice({
         builder.addCase(fetchCountries.fulfilled, (state, action: PayloadAction<getCountries[]>) => {
             state.status = 'fulfilled';
             state.data = action.payload;
+            state.filteredData = state.data;
         });
         builder.addCase(fetchCountries.rejected, (state, action) => {
             state.status = 'rejected';
@@ -64,7 +92,9 @@ export const countriesSlice = createSlice({
     },
 });
 
-export const selectCountries = (state: RootState) => state.countries.data;
+export const { filterRegion, searchCountry, refreshStatus } = countriesSlice.actions;
+
+export const selectCountries = (state: RootState) => state.countries.filteredData;
 export const countriesStatus = (state: RootState) => state.countries.status;
 export const countriesError = (state: RootState) => state.countries.error;
 
