@@ -167,4 +167,14 @@
     .country__content__description h1 {
         font-size: 30px;
     }
+
+    .country__navBar {
+        width: 93%;
+        margin-left: 7%;
+    }
+
+    .country {
+        margin-top: 10px;
+        gap: 40px;
+    }
 }
