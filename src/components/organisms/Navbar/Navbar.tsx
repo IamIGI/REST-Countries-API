@@ -11,7 +11,7 @@ const Navbar = () => {
     return (
         <div className={`navBar  ${darkMode}__mode__background`}>
             <NavLink
-                to="/"
+                to="/REST-Countries-API/"
                 onClick={() => dispatch(refreshStatus())}
                 className={`navBar__title  ${darkMode}__mode__text   pointer`}
             >

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useGetCountries } from '../../../features/countries/countriesHooks';
 import CountryPreview from '../../organisms/CountryPreview/CountryPreview';
 import SearchAndFilterSection from '../../organisms/SearchAndFilterSection/SearchAndFilterSection';

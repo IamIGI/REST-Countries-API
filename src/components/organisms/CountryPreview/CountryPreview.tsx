@@ -16,7 +16,7 @@ const CountryPreview = ({ country }: CountryPreviewProps) => {
 
     return (
         <NavLink
-            to={`/country/${country.ccA2}`}
+            to={`/REST-Countries-API/country/${country.ccA2}`}
             onClick={() => dispatch(refreshStatus())}
             className={`countryPreview ${darkMode}__mode__element ${darkMode}__mode__text  pointer`}
         >
