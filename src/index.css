@@ -21,7 +21,8 @@
     --color-light-mode-background: hsl(0, 0%, 98%);
     --color-white: hsl(0, 0%, 100%);
 
-    --default-border-radius: 8px;
+    --default-border-radius: 6px;
+    --default-box-shadow: 0px 0px 5px -2px rgba(66, 68, 90, 1);
 
     --fontSize-home: 14px;
     --fontSize-detail: 16px;

@@ -4,6 +4,7 @@ import './CountryPreview.css';
 import { NavLink } from 'react-router-dom';
 import { useAppDispatch } from '../../../app/store';
 import { refreshStatus } from '../../../features/countries/countriesSlice';
+import formatPrices from '../../../utils/formatPrices';
 
 interface CountryPreviewProps {
     country: getCountries;
@@ -25,7 +26,7 @@ const CountryPreview = ({ country }: CountryPreviewProps) => {
                 <h3>{country.name}</h3>
                 <ul>
                     <li>
-                        <b>Population:</b> {country.population}
+                        <b>Population:</b> {formatPrices(country.population)}
                     </li>
                     <li>
                         <b>Region:</b>: {country.region}

@@ -1,0 +1,110 @@
+.country {
+    margin-top: 30px;
+    width: 90%;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 70px;
+    font-size: var(--fontSize-home);
+}
+
+.country__navBar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.country__navBar--button {
+    box-shadow: var(--default-box-shadow);
+    padding: 5px 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--fontSize-detail);
+    border-radius: var(--default-border-radius);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-light-mode-text);
+    transform: scale(1, 1);
+    transition: transform 0.2s ease;
+}
+
+.country__navBar--button:hover {
+    color: var(--color-light-mode-text);
+    transform: scale(1.1, 1.1);
+}
+
+.country__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10%;
+}
+
+.country__content--image {
+    width: 45%;
+    height: auto;
+}
+
+.country__content--image img {
+    width: 100%;
+    height: auto;
+    box-shadow: var(--default-box-shadow);
+}
+
+.country__content__description {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.country__content__description h1 {
+    font-size: 35px;
+}
+
+.country__content__description__info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+
+    font-size: var(--fontSize-home);
+}
+
+.country__content__description__info div {
+    width: 45%;
+}
+
+.country__content__description__info div ul {
+    list-style: none;
+}
+.country__content__description__info div ul li:not(:last-child) {
+    margin-bottom: 1px;
+}
+
+.country__content__description__border {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.country__content__description__border span {
+    box-shadow: var(--default-box-shadow);
+    border-radius: var(--default-border-radius);
+    line-height: 20px;
+    padding: 5px 15px;
+    font-size: var(--fontSize-home);
+}
