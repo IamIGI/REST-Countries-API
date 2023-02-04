@@ -76,7 +76,7 @@ const Country = () => {
                                 <div className="country__content__description__border">
                                     <b>Border Countries:</b>
                                     {data.borderCountries.map((country) => (
-                                        <span>{country}</span>
+                                        <span className={` ${darkMode}__mode__element`}>{country}</span>
                                     ))}
                                 </div>
                             </div>
