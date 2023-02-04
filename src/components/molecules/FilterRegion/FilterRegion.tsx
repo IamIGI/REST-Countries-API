@@ -18,7 +18,7 @@ const FilterRegion = () => {
 
     return (
         <div className="filterSection">
-            <div className="filterRelative" onClick={() => setShowFilters(true)}>
+            <div className="filterRelative" onClick={() => setShowFilters(!showFilters)}>
                 <input
                     className="filterInput pointer"
                     placeholder={region !== '' ? region : 'Filter by Region'}

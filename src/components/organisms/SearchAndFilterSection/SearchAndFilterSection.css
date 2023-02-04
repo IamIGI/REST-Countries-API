@@ -7,3 +7,13 @@
     align-items: center;
     height: fit-content;
 }
+
+@media screen and (max-width: 600px) {
+    .searchAndFilters {
+        margin-left: 5%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 30px;
+    }
+}

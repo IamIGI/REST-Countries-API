@@ -1,10 +1,8 @@
-import React from 'react';
 import { useGetCountryById } from '../../../features/countries/countriesHooks';
 import { useParams } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 import './Country.css';
-import { getGivenCountry } from '../../../api/countries';
 import { useDispatch } from 'react-redux';
 import { refreshStatus } from '../../../features/countries/countriesSlice';
 import formatPrices from '../../../utils/formatPrices';
