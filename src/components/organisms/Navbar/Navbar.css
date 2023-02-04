@@ -48,3 +48,11 @@
 .navBar__darkMode:hover {
     border: 1px solid black;
 }
+
+@media screen and (max-width: 500px) {
+    .navBar__title h1 {
+        line-height: 23px;
+        font-size: 16px;
+        font-weight: 800;
+    }
+}

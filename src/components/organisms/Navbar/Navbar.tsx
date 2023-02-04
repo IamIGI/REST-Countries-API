@@ -1,4 +1,3 @@
-import React from 'react';
 import './Navbar.css';
 import { BsMoonFill } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';

@@ -6,7 +6,8 @@
     gap: 7px;
     font-size: var(--fontSize-home);
     font-weight: 600;
-    height: 50px;
+    height: 45px;
+    background-color: white;
 }
 
 .filterRelative {
@@ -15,8 +16,9 @@
 
 .filterInput {
     width: 150px;
-    height: 40px;
+    height: 45px;
     box-shadow: var(--default-box-shadow);
+    border-radius: var(--default-border-radius);
     outline: none;
     border: 0px;
     padding-left: 20px;
@@ -60,4 +62,18 @@
 
 .filterOptions li:not(:last-child) {
     margin-bottom: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .filterInput {
+        width: 200px;
+    }
+
+    .filterOptions {
+        width: 190px;
+    }
+
+    .filterOptions li:not(:last-child) {
+        margin-bottom: 10px;
+    }
 }

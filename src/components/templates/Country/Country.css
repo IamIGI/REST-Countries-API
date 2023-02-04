@@ -108,3 +108,63 @@
     padding: 5px 15px;
     font-size: var(--fontSize-home);
 }
+
+@media screen and (max-width: 1000px) {
+    .country__content {
+        gap: 5%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .country__content {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .country__content--image {
+        width: 65%;
+    }
+
+    .country__content__description {
+        width: 65%;
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .country__content {
+        gap: 40px;
+    }
+
+    .country__content--image {
+        width: 85%;
+    }
+
+    .country__content__description {
+        width: 85%;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .country__content {
+        gap: 30px;
+    }
+
+    .country__content--image {
+        width: 85%;
+    }
+
+    .country__content__description__info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .country__content__description__info div {
+        width: 90%;
+    }
+
+    .country__content__description h1 {
+        font-size: 30px;
+    }
+}
