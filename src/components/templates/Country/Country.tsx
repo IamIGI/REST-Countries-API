@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 import './Country.css';
-import { useDispatch } from 'react-redux';
-import { refreshStatus } from '../../../features/countries/countriesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { refreshStatus, selectDarkMode } from '../../../features/countries/countriesSlice';
 import formatPrices from '../../../utils/formatPrices';
 
 const Country = () => {
     const dispatch = useDispatch();
+    const darkMode = useSelector(selectDarkMode);
     const ccA2 = useParams().ccA2 as string;
 
     const { data, isError, isLoading, error } = useGetCountryById(ccA2);
@@ -26,7 +27,7 @@ const Country = () => {
                             <NavLink
                                 to="/"
                                 onClick={() => dispatch(refreshStatus())}
-                                className="country__navBar--button pointer"
+                                className={`country__navBar--button ${darkMode}__mode__element  ${darkMode}__mode__text pointer `}
                             >
                                 <AiOutlineArrowLeft />
                                 <div>Back</div>

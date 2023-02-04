@@ -1,10 +1,10 @@
-import React from 'react';
 import { getCountries } from '../../../api/countries';
 import './CountryPreview.css';
 import { NavLink } from 'react-router-dom';
 import { useAppDispatch } from '../../../app/store';
-import { refreshStatus } from '../../../features/countries/countriesSlice';
+import { refreshStatus, selectDarkMode } from '../../../features/countries/countriesSlice';
 import formatPrices from '../../../utils/formatPrices';
+import { useSelector } from 'react-redux';
 
 interface CountryPreviewProps {
     country: getCountries;
@@ -12,12 +12,13 @@ interface CountryPreviewProps {
 
 const CountryPreview = ({ country }: CountryPreviewProps) => {
     const dispatch = useAppDispatch();
+    const darkMode = useSelector(selectDarkMode);
 
     return (
         <NavLink
             to={`/country/${country.ccA2}`}
             onClick={() => dispatch(refreshStatus())}
-            className="countryPreview pointer"
+            className={`countryPreview ${darkMode}__mode__element ${darkMode}__mode__text  pointer`}
         >
             <div className="image">
                 <img src={country.flag} alt={country.name} />

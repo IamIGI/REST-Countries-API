@@ -11,6 +11,7 @@ interface CountriesInitialState {
     refresh: boolean;
     countryById: getGivenCountry | undefined;
     region: string;
+    darkMode: string;
 }
 
 const initialState: CountriesInitialState = {
@@ -21,6 +22,7 @@ const initialState: CountriesInitialState = {
     refresh: false,
     countryById: undefined,
     region: 'all',
+    darkMode: 'light',
 };
 
 export const fetchCountries = createAsyncThunk('countries/get', async (): Promise<getCountries[]> => {
@@ -64,6 +66,13 @@ export const countriesSlice = createSlice({
         refreshStatus(state) {
             state.status = 'idle';
         },
+        changeDarkMode(state) {
+            if (state.darkMode === 'light') {
+                state.darkMode = 'dark';
+            } else {
+                state.darkMode = 'light';
+            }
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchCountries.pending, (state) => {
@@ -93,12 +102,14 @@ export const countriesSlice = createSlice({
     },
 });
 
-export const { filterRegion, searchCountry, refreshStatus } = countriesSlice.actions;
+export const { filterRegion, searchCountry, refreshStatus, changeDarkMode } = countriesSlice.actions;
 
 export const selectCountries = (state: RootState) => state.countries.filteredData;
 export const countriesStatus = (state: RootState) => state.countries.status;
 export const countriesError = (state: RootState) => state.countries.error;
 
 export const selectCountryById = (state: RootState) => state.countries.countryById;
+
+export const selectDarkMode = (state: RootState) => state.countries.darkMode;
 
 export default countriesSlice.reducer;
