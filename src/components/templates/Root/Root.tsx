@@ -6,8 +6,8 @@ import Country from '../Country/Country';
 const Root = () => {
     return (
         <Routes>
-            <Route path="" element={<AllCountries />} />
-            <Route path="/country/:ccA2" element={<Country />} />
+            <Route path="/REST-Countries-API/" element={<AllCountries />} />
+            <Route path="/REST-Countries-API/country/:ccA2" element={<Country />} />
         </Routes>
     );
 };

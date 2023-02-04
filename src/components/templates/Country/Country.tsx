@@ -25,7 +25,7 @@ const Country = () => {
                     <div className="country">
                         <div className="country__navBar">
                             <NavLink
-                                to="/"
+                                to="/REST-Countries-API/"
                                 onClick={() => dispatch(refreshStatus())}
                                 className={`country__navBar--button ${darkMode}__mode__element  ${darkMode}__mode__text pointer `}
                             >
