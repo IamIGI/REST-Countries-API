@@ -11,6 +11,7 @@ export interface getCountries {
 }
 
 export interface getGivenCountry {
+    name: string;
     nativeName: string;
     population: number;
     region: string;
@@ -51,6 +52,7 @@ const getGivenCountryData = async (code: string): Promise<getGivenCountry> => {
     const response = await countriesApi.get(`alpha/${code}`);
     const country = response.data[0];
     return {
+        name: country.name.common,
         //@ts-ignore
         nativeName: Object.values(country.name.nativeName)[0].official,
         population: country.population,

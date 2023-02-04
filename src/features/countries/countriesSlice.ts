@@ -9,7 +9,7 @@ interface CountriesInitialState {
     status: 'idle' | 'pending' | 'fulfilled' | 'rejected';
     error: undefined | string;
     refresh: boolean;
-    countryById: getGivenCountry | {};
+    countryById: getGivenCountry | undefined;
     region: string;
 }
 
@@ -19,7 +19,7 @@ const initialState: CountriesInitialState = {
     status: 'idle',
     error: undefined,
     refresh: false,
-    countryById: {},
+    countryById: undefined,
     region: 'all',
 };
 
@@ -83,7 +83,8 @@ export const countriesSlice = createSlice({
         });
         builder.addCase(fetchCountryById.fulfilled, (state, action: PayloadAction<getGivenCountry | {}>) => {
             state.status = 'fulfilled';
-            state.countryById = action.payload;
+            state.countryById =
+                Object.keys(action.payload).length === 0 ? undefined : (action.payload as getGivenCountry);
         });
         builder.addCase(fetchCountryById.rejected, (state, action) => {
             state.status = 'rejected';
