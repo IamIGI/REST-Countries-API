@@ -8,6 +8,7 @@
     font-weight: 600;
     height: 45px;
     background-color: white;
+    border-radius: var(--default-border-radius);
 }
 
 .filterRelative {
